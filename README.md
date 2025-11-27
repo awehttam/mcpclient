@@ -15,7 +15,7 @@ A flexible PHP client for the Model Context Protocol (MCP) supporting both CLI a
 
 1. Clone or download to your directory:
 ```bash
-cd C:\devel\mcpclient
+cd C:\mcpclient
 ```
 
 2. Copy the example configuration:
@@ -44,7 +44,7 @@ Edit `mcpconfig.json` to define your MCP servers:
       "description": "Local dating questionnaire server",
       "connection_type": "process",
       "process": {
-        "server_path": "c:\\devel\\dating\\mcp-server\\index.php",
+        "server_path": "c:\\dating\\mcp-server\\index.php",
         "php_binary": "php"
       }
     },
@@ -135,7 +135,7 @@ The web interface provides:
 
 ### File Structure
 ```
-C:\devel\mcpclient\
+C:\mcpclient\
 ├── mcpconfig.json.example   # Example configuration
 ├── mcpconfig.json           # Your configuration (gitignored)
 ├── .gitignore               # Git ignore file
@@ -188,7 +188,7 @@ Spawns the MCP server as a child process and communicates via STDIN/STDOUT.
 {
   "connection_type": "process",
   "process": {
-    "server_path": "c:\\devel\\mcp-server\\index.php",
+    "server_path": "c:\\mcp-server\\index.php",
     "php_binary": "php"
   }
 }

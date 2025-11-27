@@ -119,7 +119,7 @@ try {
     return [
         'connection_type' => 'process',
         'process' => [
-            'server_path' => 'c:\devel\dating\mcp-server\index.php',
+            'server_path' => 'c:\mcp-server\index.php',
             'php_binary' => 'php',
         ],
         'socket' => [
