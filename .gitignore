@@ -1,0 +1,15 @@
+# MCP Client Configuration
+mcpconfig.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

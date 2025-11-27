@@ -1,0 +1,59 @@
+{
+  "default_server": "dating-local",
+  "client_info": {
+    "name": "php-mcp-client",
+    "version": "1.0.0"
+  },
+  "protocol_version": "2024-11-05",
+  "response_timeout": 10,
+  "servers": {
+    "dating-local": {
+      "name": "Dating MCP Server (Local)",
+      "description": "Local dating questionnaire server via process",
+      "connection_type": "process",
+      "process": {
+        "server_path": "c:\\mcp-server\\index.php",
+        "php_binary": "php"
+      }
+    },
+    "dating-remote": {
+      "name": "Dating MCP Server (Remote)",
+      "description": "Remote dating questionnaire server via socket",
+      "connection_type": "socket",
+      "socket": {
+        "host": "localhost",
+        "port": 3000,
+        "timeout": 30
+      }
+    },
+    "example-local": {
+      "name": "Example Local Server",
+      "description": "Example MCP server running as a local process",
+      "connection_type": "process",
+      "process": {
+        "server_path": "/path/to/your/mcp-server.php",
+        "php_binary": "php"
+      }
+    },
+    "example-production": {
+      "name": "Production MCP Server",
+      "description": "Production MCP server on remote host",
+      "connection_type": "socket",
+      "socket": {
+        "host": "mcp.example.com",
+        "port": 3000,
+        "timeout": 30
+      }
+    },
+    "example-docker": {
+      "name": "Docker MCP Server",
+      "description": "MCP server running in Docker container",
+      "connection_type": "socket",
+      "socket": {
+        "host": "127.0.0.1",
+        "port": 3001,
+        "timeout": 30
+      }
+    }
+  }
+}
