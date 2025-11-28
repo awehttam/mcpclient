@@ -12,8 +12,8 @@
       "description": "Local dating questionnaire server via process",
       "connection_type": "process",
       "process": {
-        "server_path": "c:\\mcp-server\\index.php",
-        "php_binary": "php"
+        "additional_arguments": "c:\\mcp-server\\index.php",
+        "command_line": "php"
       }
     },
     "dating-remote": {
@@ -31,8 +31,8 @@
       "description": "Example MCP server running as a local process",
       "connection_type": "process",
       "process": {
-        "server_path": "/path/to/your/mcp-server.php",
-        "php_binary": "php"
+        "additional_arguments": "/path/to/your/mcp-server.php",
+        "command_line": "php"
       }
     },
     "example-production": {

@@ -51,12 +51,12 @@ class MCPClient
      */
     private function connectProcess(): void
     {
-        $serverPath = $this->config['process']['server_path'] ?? null;
+        $serverPath = $this->config['process']['additional_arguments'] ?? null;
         if (!$serverPath || !file_exists($serverPath)) {
-            throw new Exception("Server file not found: $serverPath");
+            //throw new Exception("Server file not found: $serverPath");
         }
 
-        $phpBinary = $this->config['process']['php_binary'] ?? 'php';
+        $phpBinary = $this->config['process']['command_line'] ?? 'php';
 
         $descriptorspec = [
             0 => ["pipe", "r"],  // stdin
@@ -66,6 +66,7 @@ class MCPClient
 
         $this->process = proc_open("$phpBinary " . escapeshellarg($serverPath), $descriptorspec, $this->pipes);
 
+        error_log("$phpBinary process is ".$this->process);
         if (!is_resource($this->process)) {
             throw new Exception("Failed to start server process");
         }
@@ -205,6 +206,7 @@ class MCPClient
                 throw new Exception("Process not connected");
             }
             fwrite($this->pipes[0], $message);
+            error_log("Wrote $message");
             fflush($this->pipes[0]);
         } else {
             if (!is_resource($this->socket)) {
@@ -232,7 +234,9 @@ class MCPClient
             }
 
             $line = fgets($stream);
+
             if ($line !== false) {
+                error_log("Got $line");
                 $buffer .= $line;
 
                 // Check if we have a complete JSON object

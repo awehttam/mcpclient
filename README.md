@@ -44,8 +44,8 @@ Edit `mcpconfig.json` to define your MCP servers:
       "description": "Local dating questionnaire server",
       "connection_type": "process",
       "process": {
-        "server_path": "c:\\dating\\mcp-server\\index.php",
-        "php_binary": "php"
+        "additional_arguments": "c:\\dating\\mcp-server\\index.php",
+        "command_line": "php"
       }
     },
     "dating-remote": {
@@ -77,8 +77,8 @@ Each server in the `servers` object has:
 - **description**: Description of what the server does
 - **connection_type**: Either "process" or "socket"
 - **process**: Configuration for process-based connections
-  - **server_path**: Path to the MCP server PHP file
-  - **php_binary**: PHP executable (default: "php")
+  - **additional_arguments**: Path to the MCP server PHP file
+  - **command_line**: PHP executable (default: "php")
 - **socket**: Configuration for socket-based connections
   - **host**: Server hostname or IP
   - **port**: Server port
@@ -188,8 +188,8 @@ Spawns the MCP server as a child process and communicates via STDIN/STDOUT.
 {
   "connection_type": "process",
   "process": {
-    "server_path": "c:\\mcp-server\\index.php",
-    "php_binary": "php"
+    "additional_arguments": "c:\\mcp-server\\index.php",
+    "command_line": "php"
   }
 }
 ```
@@ -201,7 +201,7 @@ Connects to an MCP server running on a network socket.
 - Production deployments
 - Remote servers
 - Multi-user scenarios
-- Docker containers
+- Docker containers (mcp gateway run --port 3001 --transport stdio)
 
 **Example:**
 ```json
@@ -267,7 +267,7 @@ Copy `mcpconfig.json.example` to `mcpconfig.json` and configure your servers.
 Run `php mcp-client.php servers` to see available servers, or check your `mcpconfig.json`.
 
 ### Connection timeout
-- **Process mode**: Check that the server_path is correct and the file exists
+- **Process mode**: Check that the additional_arguments is correct and the file exists
 - **Socket mode**: Verify the server is running and accessible at the specified host:port
 
 ### Web interface not loading servers

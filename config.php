@@ -119,8 +119,8 @@ try {
     return [
         'connection_type' => 'process',
         'process' => [
-            'server_path' => 'c:\mcp-server\index.php',
-            'php_binary' => 'php',
+            'additional_arguments' => 'c:\mcp-server\index.php',
+            'command_line' => 'php',
         ],
         'socket' => [
             'host' => 'localhost',

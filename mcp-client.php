@@ -38,7 +38,7 @@ class InteractiveMCPClient
             echo "Connection type: $connectionType\n";
 
             if ($connectionType === 'process') {
-                echo "Server path: {$this->config['process']['server_path']}\n";
+                echo "Server path: {$this->config['process']['additional_arguments']}\n";
             } else {
                 echo "Server: {$this->config['socket']['host']}:{$this->config['socket']['port']}\n";
             }
